@@ -1,0 +1,6 @@
+@import "utilities/utilities";
+@import "utilities/utilities_basic_decoration";
+
+body{
+    @include background_color(gold);
+}

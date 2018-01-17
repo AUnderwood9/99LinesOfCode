@@ -1,0 +1,25 @@
+{
+  "name": "99LinesOfCode",
+  "version": "1.0.0",
+  "description": "## Info * This lab consists of two parts * Today you will be doing most of the logic/coding * You will also get started on the graphical appearance",
+  "main": "index.js",
+  "dependencies": {
+    "node-sass": "^4.7.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-scss --watch resources/styles/style.scss resources/styles/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AUnderwood9/99LinesOfCode.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AUnderwood9/99LinesOfCode/issues"
+  },
+  "homepage": "https://github.com/AUnderwood9/99LinesOfCode#readme"
+}
