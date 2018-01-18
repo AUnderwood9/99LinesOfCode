@@ -9,6 +9,13 @@ let createElement = function(nodeToAppend, elementType, contentToAppend) {
     nodeToAppend.appendChild(nodeToAdd);
 }
 
+document.addEventListener('DOMContentLoaded', function (){
+
+    // manipulate elements
+    console.log("dom content loaded");
+    
+    });
+
 while (divFriend.hasChildNodes()) {
     divFriend.removeChild(divFriend.lastChild);
 }
@@ -17,10 +24,12 @@ myFriends.forEach(function(item){
     let lyricLine = "";
     let lyricLineArray = [];
     for(i = 99; i > 0; i--){
-        if(i > 1){
+        if(i > 2){
             lyricLine = `${i} lines of code in the file, ${i} lines of code; ${item} strikes one out, clears it all out, ${i -1} lines of code in the file`;
-        }else{
+        }else if(i === 1){
             lyricLine = `${i} line of code in the file, ${i} line of code; ${item} strikes one out, clears it all out, no more lines of code in the file`;
+        }else{
+            lyricLine = `${i} lines of code in the file, ${i} lines of code; ${item} strikes one out, clears it all out, ${i -1} line of code in the file`;
         }
         lyricLineArray.push(lyricLine);
     }
