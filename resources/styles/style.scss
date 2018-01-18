@@ -11,7 +11,7 @@ body{
 
     .friend{
         @include background_color(#B29600);
-        p{
+        h3{
             @include text_uppercase();
         }
     }
