@@ -17,3 +17,7 @@
 @mixin no_word_wrap{
     white-space: nowrap;
 }
+
+@mixin text_uppercase{
+    text-transform: uppercase;
+}
