@@ -1,4 +1,8 @@
 body {
   background-color: gold; }
-
-/*# sourceMappingURL=style.css.map */
+  body h1 {
+    color: #1100FF; }
+  body .friend {
+    background-color: #B29600; }
+    body .friend p {
+      text-transform: uppercase; }

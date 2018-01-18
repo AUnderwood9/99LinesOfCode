@@ -1,6 +1,18 @@
 @import "utilities/utilities";
 @import "utilities/utilities_basic_decoration";
+@import "utilities/utilities_text_utilities";
 
 body{
     @include background_color(gold);
+
+    h1{
+        @include text_color(#1100FF);
+    }
+
+    .friend{
+        @include background_color(#B29600);
+        p{
+            @include text_uppercase();
+        }
+    }
 }
