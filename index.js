@@ -5,8 +5,8 @@ let lyricArray = [];
 let createElement = function(nodeToAppend, elementType, contentToAppend) {
     let nodeToAdd = document.createElement(elementType);
     let nodeText = document.createTextNode(contentToAppend);
-    nodeToAdd.appendChild(nodeText);
 
+    nodeToAdd.appendChild(nodeText);
     nodeToAppend.appendChild(nodeToAdd);
 }
 
@@ -15,9 +15,9 @@ let createNodeAndClass = function(elementType, contentToAppend, elementClass) {
     let nodeHeader = document.createElement("h3");
     let nodeText = document.createTextNode(contentToAppend);
     nodeToAdd.className = elementClass;
+
     nodeHeader.appendChild(nodeText);
     nodeToAdd.appendChild(nodeHeader);
-
     document.body.appendChild(nodeToAdd);
 }
 
