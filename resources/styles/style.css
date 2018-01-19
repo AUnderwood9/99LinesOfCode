@@ -9,5 +9,7 @@ body {
     background-color: #B29600; }
     body .friend h3 {
       text-transform: uppercase; }
+  body #displayContent {
+    display: none; }
 
 /*# sourceMappingURL=style.css.map */

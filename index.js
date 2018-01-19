@@ -1,6 +1,8 @@
 let myFriends = ["Tyrion", "Tyler Durden", "Dragonborn", "Joshua Graham", "Jon Snow"];
 let singingButton = document.getElementById("sing");
 let lyricArray = [];
+let containerDiv = document.getElementsByClassName("container");
+let mainDiv = document.getElementById("displayContent");
 
 let createElement = function(nodeToAppend, elementType, contentToAppend) {
     let nodeToAdd = document.createElement(elementType);
@@ -18,7 +20,7 @@ let createNodeAndClass = function(elementType, contentToAppend, elementClass) {
 
     nodeHeader.appendChild(nodeText);
     nodeToAdd.appendChild(nodeHeader);
-    document.body.appendChild(nodeToAdd);
+    mainDiv.appendChild(nodeToAdd);
 }
 
 myFriends.forEach(function(item){
@@ -45,14 +47,24 @@ myFriends.forEach(function(item){
 document.addEventListener('DOMContentLoaded', function (){
 
     singingButton.addEventListener("click", () => {
-        for(item in lyricArray){
-            createNodeAndClass("div", lyricArray[item]["friendName"], "friend");
-            let divFriendNames = document.getElementsByClassName("friend");
-            for(item2 in lyricArray[item]["friendLyric"]){
-                createElement(divFriendNames[item], "p", lyricArray[item]["friendLyric"][item2]);
+        if(window.getComputedStyle(mainDiv).display === "none"){
+            mainDiv.style.display = "inline";
 
+            for(item in lyricArray){
+                createNodeAndClass("div", lyricArray[item]["friendName"], "friend");
+                let divFriendNames = document.getElementsByClassName("friend");
+                for(item2 in lyricArray[item]["friendLyric"]){
+                    createElement(divFriendNames[item], "p", lyricArray[item]["friendLyric"][item2]);
+                }
             }
+        }else{
+            mainDiv.style.display = "none";
+            /*
+            while (mainDiv.firstChild) {
+                mainDiv.removeChild(mainDiv.firstChild);
+            }*/
         }
+        
     });
 
 });
