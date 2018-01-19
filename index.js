@@ -1,12 +1,15 @@
 let myFriends = ["Tyrion", "Tyler Durden", "Dragonborn", "Joshua Graham", "Jon Snow"];
-let singingButton = document.getElementById("sing");
+const singingButton = document.getElementById("sing");
 let lyricArray = [];
 let containerDiv = document.getElementsByClassName("container");
 let mainDiv = document.getElementById("displayContent");
 
-let createElement = function(nodeToAppend, elementType, contentToAppend) {
+let createElement = function(nodeToAppend, elementType, contentToAppend, elementClass = null) {
     let nodeToAdd = document.createElement(elementType);
     let nodeText = document.createTextNode(contentToAppend);
+    if(elementClass != null){
+        
+    }
 
     nodeToAdd.appendChild(nodeText);
     nodeToAppend.appendChild(nodeToAdd);
@@ -16,11 +19,23 @@ let createNodeAndClass = function(elementType, contentToAppend, elementClass) {
     let nodeToAdd = document.createElement(elementType);
     let nodeHeader = document.createElement("h3");
     let nodeText = document.createTextNode(contentToAppend);
-    nodeToAdd.className = elementClass;
+    elementClass.forEach((item)=> {
+        nodeToAdd.className += `${item} `;
+        console.log(item);
+        console.log(nodeToAdd.className);
+    });
 
+    console.log(nodeToAdd.className);
+    
     nodeHeader.appendChild(nodeText);
     nodeToAdd.appendChild(nodeHeader);
     mainDiv.appendChild(nodeToAdd);
+}
+
+let eraseAllChildNodes = (nodeToClean) => {
+    while (nodeToClean.firstChild) {
+        nodeToClean.removeChild(nodeToClean.firstChild);
+    }
 }
 
 myFriends.forEach(function(item){
@@ -47,24 +62,24 @@ myFriends.forEach(function(item){
 document.addEventListener('DOMContentLoaded', function (){
 
     singingButton.addEventListener("click", () => {
-        if(window.getComputedStyle(mainDiv).display === "none"){
-            mainDiv.style.display = "inline";
 
+        //Delete Placeholder
+        if(mainDiv.children.length === 1){
+            eraseAllChildNodes(mainDiv);
+        }
+
+        if(mainDiv.children.length === 0){
             for(item in lyricArray){
-                createNodeAndClass("div", lyricArray[item]["friendName"], "friend");
+                createNodeAndClass("div", lyricArray[item]["friendName"], ["friend","card", "z-depth-5", "center-align"]);
                 let divFriendNames = document.getElementsByClassName("friend");
                 for(item2 in lyricArray[item]["friendLyric"]){
                     createElement(divFriendNames[item], "p", lyricArray[item]["friendLyric"][item2]);
                 }
             }
         }else{
-            mainDiv.style.display = "none";
-            /*
-            while (mainDiv.firstChild) {
-                mainDiv.removeChild(mainDiv.firstChild);
-            }*/
+            
+            eraseAllChildNodes(mainDiv);
         }
-        
     });
 
 });
