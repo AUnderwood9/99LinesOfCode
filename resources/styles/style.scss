@@ -2,6 +2,10 @@
 @import "utilities/utilities_basic_decoration";
 @import "utilities/utilities_text_utilities";
 
+*{
+    margin: 0 auto;
+}
+
 body{
     @include background_color(gold);
 
